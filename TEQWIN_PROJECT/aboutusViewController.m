@@ -294,26 +294,20 @@ return 1;
             case 3:
             {
                 
-             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:23893939"]];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"撥號"
+                                                                message:@"確定要撥號嗎？"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"否"
+                                                      otherButtonTitles:@"是",nil];
+                //然后这里设定关联，此处把indexPath关联到alert上
                 
-                
-                
+                [alert show];
+            
             }
                 break;
                 
         }}
-    
-    
 }
-//- (IBAction)getDirectionButtonPressed:(id)sender {
-// UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Get Direction"
-//                                                     message:@"Go to Maps?"
-//                                                  delegate:self
-//                                         cancelButtonTitle:@"取消"
-//                                         otherButtonTitles:@"確定", nil];
-// alertView.delegate = self;
-//[alertView show];
-//}
 
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -349,11 +343,12 @@ return 1;
 {
     NSString *button = [alertView buttonTitleAtIndex:buttonIndex];
     if([button isEqualToString:@"是"])
-    {NSURL *url =[NSURL URLWithString:@"852 23893939"];
+    {NSURL *url =[NSURL URLWithString:@"23893939"];
         [[UIApplication sharedApplication] openURL:url];
-       
         
-    }}
+        
+    }
+}
 - (IBAction)segmented:(id)sender {
     switch (_segmentControl.selectedSegmentIndex) {
         case 0:

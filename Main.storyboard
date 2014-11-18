@@ -187,7 +187,7 @@
                                     <action selector="button:" destination="DhQ-Ug-qmR" eventType="touchUpInside" id="Bcg-3i-H1U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKs-aP-EMx">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKs-aP-EMx">
                                 <rect key="frame" x="0.0" y="71" width="320" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -199,6 +199,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="34" id="J25-UJ-LQL"/>
+                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="51" id="VDq-c3-VRs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3RO-6c-fFN"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -381,7 +385,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-U6-iDG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-U6-iDG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,6 +422,10 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hRJ-Wm-CXe" firstAttribute="top" secondItem="8K5-U6-iDG" secondAttribute="bottom" id="0by-hp-HQa"/>
+                            <constraint firstItem="8K5-U6-iDG" firstAttribute="top" secondItem="qVY-DE-jXd" secondAttribute="bottom" id="dkq-mz-ZNB"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Title" id="tPn-kx-h7E"/>

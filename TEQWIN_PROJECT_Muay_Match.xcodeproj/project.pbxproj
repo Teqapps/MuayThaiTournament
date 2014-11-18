@@ -33,6 +33,7 @@
 		42223ED719B5613300F0D058 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42223ED619B5613300F0D058 /* Accounts.framework */; };
 		42223ED919B5615400F0D058 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42223ED819B5615400F0D058 /* libz.1.1.3.dylib */; };
 		4263005D199083C3007B8C8F /* app-map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4263005C199083C3007B8C8F /* app-map-icon.png */; };
+		4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4265871C1A1B4196002C0E93 /* navigationicon.png */; };
 		426864471A1092920043582C /* vs.png in Resources */ = {isa = PBXBuildFile; fileRef = 426864461A1092920043582C /* vs.png */; };
 		4268644E1A11E35A0043582C /* lose.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644C1A11E35A0043582C /* lose.png */; };
 		4268644F1A11E35A0043582C /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644D1A11E35A0043582C /* win.png */; };
@@ -118,6 +119,7 @@
 		42223ED619B5613300F0D058 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		42223ED819B5615400F0D058 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		4263005C199083C3007B8C8F /* app-map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-map-icon.png"; sourceTree = "<group>"; };
+		4265871C1A1B4196002C0E93 /* navigationicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationicon.png; sourceTree = "<group>"; };
 		426864461A1092920043582C /* vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs.png; sourceTree = "<group>"; };
 		4268644C1A11E35A0043582C /* lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose.png; sourceTree = "<group>"; };
 		4268644D1A11E35A0043582C /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		42630028198B3A72007B8C8F /* photo */ = {
 			isa = PBXGroup;
 			children = (
+				4265871C1A1B4196002C0E93 /* navigationicon.png */,
 				42A95FD71A022EB4002C0508 /* image001.png */,
 				42D3D5D919F7481800B01A97 /* FACEBOOK.JPG */,
 				428E7C5B1A008B5900CA2C14 /* loading.png */,
@@ -501,6 +504,7 @@
 				4263005D199083C3007B8C8F /* app-map-icon.png in Resources */,
 				4268645B1A1212490043582C /* info.html in Resources */,
 				42193FA91985FE08007E3C52 /* Images.xcassets in Resources */,
+				4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */,
 				42A95FDC1A02335C002C0508 /* teqapps_logo_ai_G.png in Resources */,
 				4268644E1A11E35A0043582C /* lose.png in Resources */,
 				426ED3D219C02C740024E817 /* Main.storyboard in Resources */,
