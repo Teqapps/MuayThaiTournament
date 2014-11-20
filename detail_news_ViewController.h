@@ -18,6 +18,8 @@
     PFObject *comment;
       UITextView * intro;
 }
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner_1;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner_2;
 @property (weak, nonatomic) IBOutlet PFImageView *club_image;
 @property (weak, nonatomic) IBOutlet UILabel *club_name;
 @property (weak, nonatomic) IBOutlet UITextView *news_detail;

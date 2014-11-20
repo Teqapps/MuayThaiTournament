@@ -58,7 +58,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-    
+   
     self.tabBarController.tabBar.hidden = NO;
      [self queryParseMethod_boxer1];
          CGRect newBounds = self.tableView.bounds;
@@ -67,7 +67,7 @@
         self.tableView.bounds = newBounds;
     }
     
-    self.title =@"找拳館";
+    self.title =@"泰拳比賽";
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = [UIColor blackColor];
     // searchbar.hidden = !searchbar.hidden;
@@ -91,7 +91,7 @@
    
     
    
-    [self refreshTable:nil];
+   
    
     // scroll search bar out of sight
     CGRect newBounds = self.tableView.bounds;
@@ -197,7 +197,6 @@
 }
 
 - (void)queryParseMethod_boxer1 {
-   // NSLog(@"start query");
     r = arc4random_uniform(3)+1;
     RANDOM = [[NSNumber numberWithInt:r] stringValue];
     r_2 = arc4random_uniform(3)+1;
@@ -226,10 +225,9 @@
                 
                 bannerarray = [NSArray arrayWithArray:mutableArray];
             
-             // NSLog(@"%@",randomArray);
-                NSLog(@"%@",bannerarray);
-               // NSLog(@"%@",bannerarray);
+    
                 [_table_view reloadData];
+            
               //  NSLog(@"baba%@",bannerarray);
             }
             
@@ -245,21 +243,24 @@
 
 
 - (PFQuery *)queryForTable{
-    
+
+
+
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+   
     [query whereKey:@"allow_display" equalTo:[NSNumber numberWithBool:YES]];
 
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
-    /*    if ([self.objects count] == 0) {
+       if ([self.objects count] == 0) {
      query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-     }*/
+       }
     
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
    
     return query;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -307,17 +308,66 @@
    // selectobject = [boxer_array  objectAtIndex:indexPath.row];
     if (tableView == self.tableView) {
               // NSLog(@"gg%@",self.objects);
+       
         UIActivityIndicatorView *loadingSpinner_2 = (UIActivityIndicatorView*) [cell viewWithTag:111];
         UIActivityIndicatorView *loadingSpinner = (UIActivityIndicatorView*) [cell viewWithTag:110];
+       
         loadingSpinner.hidden= NO;
         [loadingSpinner startAnimating];
         loadingSpinner_2.hidden= NO;
         [loadingSpinner_2 startAnimating];
         PFFile *Boxer_1_image = [object objectForKey:@"Boxer_1_image"];
         PFImageView *Boxer_1_imageView = (PFImageView*)[cell viewWithTag:100];
+       
+
+        
+
+
+        Boxer_1_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
+       Boxer_1_imageView.layer.cornerRadius= Boxer_1_imageView.frame.size.width / 2;
+        Boxer_1_imageView.layer.borderWidth=0.1;
+        Boxer_1_imageView.layer.masksToBounds = YES;
+        Boxer_1_imageView.layer.borderColor=[[UIColor whiteColor] CGColor];
+
+        Boxer_1_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+ 
+        [Boxer_1_image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+            
+                Boxer_1_imageView.image = [UIImage imageWithData:data];
+                [loadingSpinner stopAnimating];
+                loadingSpinner.hidden = YES;
+               
+            }}
+         ];
+        
         PFFile *Boxer_2_image = [object objectForKey:@"Boxer_2_image"];
         PFImageView *Boxer_2_imageView = (PFImageView*)[cell viewWithTag:99];
+      
+        Boxer_2_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
+        Boxer_2_imageView.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
+        Boxer_2_imageView.layer.borderWidth=0.1;
+        Boxer_2_imageView.layer.masksToBounds = YES;
+        Boxer_2_imageView.layer.borderColor=[[UIColor whiteColor] CGColor];
+
+        Boxer_2_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
         
+        loadingSpinner_2.hidden= NO;
+        [loadingSpinner_2 startAnimating];
+        [Boxer_2_image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                 Boxer_2_imageView.image = [UIImage imageNamed:@"ICON.png"];
+                              Boxer_2_imageView.image = [UIImage imageWithData:data];
+                [loadingSpinner_2 stopAnimating];
+                loadingSpinner_2.hidden = YES;
+               
+            }}
+         ];
+        
+       
        // PFFile *Match_Result_1 = [object objectForKey:@"Boxer_1_resulticon"];
         NSNumber * isSuccessNumber = (NSNumber *)[object objectForKey: @"Result_allow"];
         if([isSuccessNumber boolValue] == YES)
@@ -349,42 +399,20 @@
                 Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
             }
         }
-    //    NSLog(@"hee%ld",(long)indexPath.row);
-        
-       
-        
-        // get random number based on array count
-       // NSLog(@"%lu",(unsigned long)bannerarray.count);
-        
-      //  NSLog(@"%d",randomColor);
-       // NSLog(@"%@",bannerarray);
-        
-       // NSLog(@"index%ld",(long)indexPath.row);
-        //NSLog(@"last%d",lastClickedRow);
-        
-        
+
         
          PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];
-
-      //  NSMutable * test;
-     //   NSLog(@"hehe%@",[bannerarray objectAtIndex:indexPath.row]);
-    //    NSLog(@"%d",indexPath.row) ;
-        
-       // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
-        
-       // if ([[object objectForKey:@"Boxer_1_id"]containsObject:[bannerobject objectForKey:@"banner_id"]]) {
-
-
-            
+     
         PFFile *banner = [bannerobject objectForKey:@"banner_image"];
       
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
-        
+        [Boxer_1_image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
         {
             banner_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
+       UIGraphicsEndImageContext();
           //  Boxer_1_imageView.image = [UIImage imageNamed:@"ICON.PNG"];
             banner_imageView.file = banner;
             [banner_imageView loadInBackground];
@@ -397,34 +425,8 @@
         
         
         }
-        
-        
-        //thumbnailImageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
-        // thumbnailImageView.layer.cornerRadius= thumbnailImageView.frame.size.width / 2;
-        //thumbnailImageView.layer.borderWidth=0.0;
-        // thumbnailImageView.layer.masksToBounds = YES;
-        //thumbnailImageView.layer.borderColor=[[UIColor whiteColor] CGColor];
-        
-        Boxer_1_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        Boxer_1_imageView.image = [UIImage imageNamed:@"ICON.PNG"];
-        Boxer_1_imageView.file = Boxer_1_image;
-        [Boxer_1_imageView loadInBackground];
-        
-        Boxer_2_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        Boxer_2_imageView.image = [UIImage imageNamed:@"ICON.PNG"];
-        Boxer_2_imageView.file = Boxer_2_image;
-        [Boxer_2_imageView loadInBackground];
-        
-      
-        
-      
-        
-        [loadingSpinner stopAnimating];
-        loadingSpinner.hidden = YES;
-        [loadingSpinner_2 stopAnimating];
-        loadingSpinner_2.hidden = YES;
+
+            }}];
         
         
         
@@ -460,7 +462,7 @@
         
         //      sex_statues.image = [UIImage imageNamed:@"icon-sex-f.png"];
         //  }
-        
+       
         heart_statues = (PFImageView*)[cell viewWithTag:107];
         if ([[object objectForKey:@"favorites"]containsObject:[PFUser currentUser].objectId]) {
             

@@ -7,7 +7,7 @@
 //
 
 #import "detail_news_ViewController.h"
-
+#import "MBProgressHUD.h"
 @interface detail_news_ViewController ()
 ;
 
@@ -65,7 +65,7 @@
     else{
         self.view_count.text =[NSString stringWithFormat:@"%lu",(unsigned long)self.tattoomasterCell.news_view.count];
     }
-    
+   
     self.name.text =self.tattoomasterCell.boxer_name;
    // _news_detail.text=self.tattoomasterCell.boxer_id;
    // self.profile_image.file=self.tattoomasterCell.imageFile;
@@ -76,6 +76,13 @@
 
 }
 - (void)viewWillAppear:(BOOL)animated {
+
+
+
+    _loadingSpinner_1.hidden= NO;
+    [_loadingSpinner_1 startAnimating];
+    _loadingSpinner_2.hidden= NO;
+    [_loadingSpinner_2 startAnimating];
     PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
@@ -83,11 +90,22 @@
     [query whereKey:@"boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+          
             for (PFObject *object in objects) {
+           
             _club_image.file = (PFFile *)object[@"Club_image"]; // remote image
             _profile_image.file   =(PFFile *)object[@"Image"];
+                _club_image.image=UIGraphicsGetImageFromCurrentImageContext();
+                _profile_image.image =UIGraphicsGetImageFromCurrentImageContext();
+               
+                _loadingSpinner_1.hidden= YES;
+                [_loadingSpinner_1 stopAnimating];
+                _loadingSpinner_2.hidden= YES;
+                [_loadingSpinner_2 stopAnimating];
             [_club_image loadInBackground];
+              
             [_profile_image loadInBackground];
+          
             }
         }    }];
     

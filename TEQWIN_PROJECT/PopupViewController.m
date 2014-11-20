@@ -24,31 +24,38 @@
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated {
-  r = arc4random_uniform(3)+1;
-   RANDOM = [@(r) stringValue];
+
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.labelText = @"Loading";
     [hud show:YES];
 
     PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
-    //
-
-    [query whereKey:@"ad_id" equalTo:RANDOM];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            r = arc4random_uniform(objects.count)+1;
+            RANDOM = [@(r) stringValue];
+    [query whereKey:@"ad_id" equalTo:RANDOM];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
             for (PFObject *object in objects) {
-        
+            
                 _ad_image.file = (PFFile *)object[@"ad_image"]; // remote image
-               
+                CGSize itemSize = CGSizeMake(70, 70);
+                UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+                CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+                [_ad_image.image drawInRect:imageRect];
+                _ad_image.image=UIGraphicsGetImageFromCurrentImageContext();
+
                 [_ad_image loadInBackground];
-        [hud hide:YES];
-            }
-        }    }];
-    
-    
+        
+                     [hud hide:YES];
+        
+            }}}];}}];
+
     // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)viewDidLoad
