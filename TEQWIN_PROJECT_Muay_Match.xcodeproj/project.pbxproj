@@ -35,7 +35,6 @@
 		422278B41A1DD90D00AA7915 /* vs.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278B31A1DD90D00AA7915 /* vs.png */; };
 		4263005D199083C3007B8C8F /* app-map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4263005C199083C3007B8C8F /* app-map-icon.png */; };
 		4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4265871C1A1B4196002C0E93 /* navigationicon.png */; };
-		426864471A1092920043582C /* vs.png in Resources */ = {isa = PBXBuildFile; fileRef = 426864461A1092920043582C /* vs.png */; };
 		4268644E1A11E35A0043582C /* lose.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644C1A11E35A0043582C /* lose.png */; };
 		4268644F1A11E35A0043582C /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644D1A11E35A0043582C /* win.png */; };
 		426864511A11EBC50043582C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426864501A11EBC50043582C /* iAd.framework */; };
@@ -122,7 +121,6 @@
 		422278B31A1DD90D00AA7915 /* vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs.png; sourceTree = "<group>"; };
 		4263005C199083C3007B8C8F /* app-map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-map-icon.png"; sourceTree = "<group>"; };
 		4265871C1A1B4196002C0E93 /* navigationicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationicon.png; sourceTree = "<group>"; };
-		426864461A1092920043582C /* vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs.png; sourceTree = "<group>"; };
 		4268644C1A11E35A0043582C /* lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose.png; sourceTree = "<group>"; };
 		4268644D1A11E35A0043582C /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
 		426864501A11EBC50043582C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -217,7 +215,6 @@
 			children = (
 				426864561A12123F0043582C /* HTML */,
 				426864521A1212230043582C /* MTPopupWindow */,
-				426864461A1092920043582C /* vs.png */,
 				426ED3E619C049EE0024E817 /* MBProgressHUB */,
 				426ED3D119C02C740024E817 /* Main.storyboard */,
 				424FAC8A19888CF60062D13D /* SideBar & Main */,
@@ -519,7 +516,6 @@
 				428E7C531A00865000CA2C14 /* ICON@2x.png in Resources */,
 				4268645C1A1212490043582C /* more.html in Resources */,
 				422278B41A1DD90D00AA7915 /* vs.png in Resources */,
-				426864471A1092920043582C /* vs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

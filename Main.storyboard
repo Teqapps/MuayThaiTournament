@@ -41,28 +41,28 @@
                                             <rect key="frame" x="13" y="102" width="78" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.42352944612503052" green="0.86274516582489014" blue="0.83137261867523193" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" red="0.95686280727386475" green="0.729411780834198" blue="0.17647059261798859" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="AaX-ML-z6W">
                                             <rect key="frame" x="220" y="102" width="80" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.41947849260294212" green="0.89744606598984777" blue="0.86973486642108833" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.97254908084869385" green="0.74117648601531982" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="187" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="82" translatesAutoresizingMaskIntoConstraints="NO" id="w2y-Fk-tpF">
                                             <rect key="frame" x="115" y="110" width="82" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.93232471446700504" green="0.7540373768647447" blue="0.39106615374561954" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.93232471446700504" green="0.40545866847339102" blue="0.010540994253119249" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="188" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="111" translatesAutoresizingMaskIntoConstraints="NO" id="IjT-d8-aoD">
                                             <rect key="frame" x="99" y="87" width="111" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.93232471446700504" green="0.7540373768647447" blue="0.39106615374561954" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.93232471446700504" green="0.35714026222611561" blue="0.18324422577359351" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vs.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bt5-5g-y7d">
@@ -113,11 +113,11 @@
                                         </button>
                                         <activityIndicatorView opaque="NO" tag="110" contentMode="scaleToFill" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VQ8-AC-fwc">
                                             <rect key="frame" x="40" y="50" width="20" height="20"/>
-                                            <color key="color" red="0.1058782762" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="color" red="0.97647064924240112" green="0.74117648601531982" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
                                         </activityIndicatorView>
                                         <activityIndicatorView opaque="NO" tag="111" contentMode="scaleToFill" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8hS-Pl-feU">
                                             <rect key="frame" x="240" y="50" width="20" height="20"/>
-                                            <color key="color" red="0.1058782762" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="color" red="0.97647064924240112" green="0.74117648601531982" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
                                         </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>

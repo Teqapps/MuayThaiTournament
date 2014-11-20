@@ -412,7 +412,7 @@
         if([isSuccessNumber3 boolValue] == YES)
         {
             banner_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-       UIGraphicsEndImageContext();
+   
           //  Boxer_1_imageView.image = [UIImage imageNamed:@"ICON.PNG"];
             banner_imageView.file = banner;
             [banner_imageView loadInBackground];
