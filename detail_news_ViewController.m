@@ -79,11 +79,7 @@
 
 
 
-    _loadingSpinner_1.hidden= NO;
-    [_loadingSpinner_1 startAnimating];
-    _loadingSpinner_2.hidden= NO;
-    [_loadingSpinner_2 startAnimating];
-    PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
+      PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
@@ -92,22 +88,30 @@
         if (!error) {
           
             for (PFObject *object in objects) {
-           
-            _club_image.file = (PFFile *)object[@"Club_image"]; // remote image
-            _profile_image.file   =(PFFile *)object[@"Image"];
-                _club_image.image=UIGraphicsGetImageFromCurrentImageContext();
-                _profile_image.image =UIGraphicsGetImageFromCurrentImageContext();
-               
-                _loadingSpinner_1.hidden= YES;
-                [_loadingSpinner_1 stopAnimating];
-                _loadingSpinner_2.hidden= YES;
-                [_loadingSpinner_2 stopAnimating];
-            [_club_image loadInBackground];
-              
-            [_profile_image loadInBackground];
-          
-            }
-        }    }];
+              _club_image.file = [object objectForKey:@"Club_image"];
+                _loadingSpinner_2.hidden = NO;
+                [_loadingSpinner_2 startAnimating];
+                [_club_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    _club_image.image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    _club_image.image = [UIImage imageWithData:data];
+                    _loadingSpinner_2.hidden = YES;
+                    [_loadingSpinner_2 stopAnimating];
+                
+                }];
+                _profile_image.file = [object objectForKey:@"Image"];
+                _loadingSpinner_1.hidden = NO;
+                [_loadingSpinner_1 startAnimating];
+                [_profile_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    _profile_image.image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    _profile_image.image = [UIImage imageWithData:data];
+                    _loadingSpinner_1.hidden = YES;
+                    [_loadingSpinner_1 stopAnimating];
+                    
+                }];
+            
+            }}}];
     
 
    // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);

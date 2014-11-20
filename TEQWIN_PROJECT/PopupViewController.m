@@ -24,38 +24,30 @@
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated {
-
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading";
-    [hud show:YES];
-
-    PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
+      PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    
+    //
+[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+    r = arc4random_uniform(objects.count)+1;
+    RANDOM = [@(r) stringValue];
+    [query whereKey:@"ad_id" equalTo:RANDOM];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            r = arc4random_uniform(objects.count)+1;
-            RANDOM = [@(r) stringValue];
-    [query whereKey:@"ad_id" equalTo:RANDOM];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            
+            NSLog(@"%d",objects.count);
             for (PFObject *object in objects) {
-            
-                _ad_image.file = (PFFile *)object[@"ad_image"]; // remote image
-                CGSize itemSize = CGSizeMake(70, 70);
-                UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-                CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-                [_ad_image.image drawInRect:imageRect];
-                _ad_image.image=UIGraphicsGetImageFromCurrentImageContext();
-
-                [_ad_image loadInBackground];
-        
-                     [hud hide:YES];
-        
-            }}}];}}];
-
+             _ad_image.file = [object objectForKey:@"ad_image"];
+                _loadingSpinner.hidden = NO;
+                [_loadingSpinner startAnimating];
+                [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    _ad_image.image = [UIImage imageWithData:data];
+                    _loadingSpinner.hidden = YES;
+                    [_loadingSpinner stopAnimating];
+                }];}}}];}];
     // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)viewDidLoad

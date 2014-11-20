@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet PFImageView *ad_image;
 @property (weak, nonatomic) IBOutlet UIButton *golink;
 - (IBAction)golink:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 - (IBAction)button:(id)sender;
