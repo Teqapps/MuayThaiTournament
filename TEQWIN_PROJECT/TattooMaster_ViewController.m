@@ -72,7 +72,16 @@
     self.view.backgroundColor = [UIColor blackColor];
     // searchbar.hidden = !searchbar.hidden;
 
+    searchquery = [PFQuery queryWithClassName:@"Boxers"];
+    //[query whereKey:@"Name" containsString:searchTerm];
     
+    searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
+    [searchquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            boxer_array = [[NSArray alloc] initWithArray:objects];
+            
+        }
+    }];
 
     self.navigationController.navigationBar.translucent=NO;
 
@@ -99,16 +108,7 @@
         newBounds.origin.y = newBounds.origin.y;
         self.tableView.bounds = newBounds;
     }
-    searchquery = [PFQuery queryWithClassName:@"Boxers"];
-    //[query whereKey:@"Name" containsString:searchTerm];
-    
-    searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
-    [searchquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            boxer_array = [[NSArray alloc] initWithArray:objects];
-          
-        }
-    }];
+
 
 
 }
@@ -246,7 +246,7 @@
     
    
     [query whereKey:@"allow_display" equalTo:[NSNumber numberWithBool:YES]];
-
+    
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
        if ([self.objects count] == 0) {
@@ -313,7 +313,8 @@
         loadingSpinner_2.hidden= NO;
         [loadingSpinner_2 startAnimating];
         PFFile *Boxer_1_image = [object objectForKey:@"Boxer_1_image"];
-        PFImageView *Boxer_1_imageView = (PFImageView*)[cell viewWithTag:100];
+        
+             PFImageView *Boxer_1_imageView = (PFImageView*)[cell viewWithTag:100];
        
 
         
@@ -355,11 +356,13 @@
         [loadingSpinner_2 startAnimating];
         [Boxer_2_image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                 Boxer_2_imageView.image = [UIImage imageNamed:@"ICON.png"];
+            
+                          Boxer_2_imageView.image = [UIImage imageNamed:@"ICON.png"];
+            
                               Boxer_2_imageView.image = [UIImage imageWithData:data];
                 [loadingSpinner_2 stopAnimating];
                 loadingSpinner_2.hidden = YES;
-               
+                
             }}
          ];
         

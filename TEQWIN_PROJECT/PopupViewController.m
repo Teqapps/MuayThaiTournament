@@ -24,20 +24,25 @@
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated {
+    _loadingSpinner.hidden = NO;
+    [_loadingSpinner startAnimating];
       PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
     
 
 
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            _loadingSpinner.hidden = NO;
-            [_loadingSpinner startAnimating];
+       query.cachePolicy = kPFCachePolicyNetworkElseCache ;
             NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
             r = arc4random_uniform(mutableArray.count)+1;
             RANDOM = [@(r) stringValue];
-            
             [query whereKey:@"ad_id" equalTo:RANDOM];
+        }
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+          
 
             for (PFObject *object in objects) {
              _ad_image.file = [object objectForKey:@"ad_image"];
@@ -50,7 +55,7 @@
                     [_loadingSpinner stopAnimating];
                     
                     
-                }];}}}];
+                }];}}}];}];
     // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)viewDidLoad
