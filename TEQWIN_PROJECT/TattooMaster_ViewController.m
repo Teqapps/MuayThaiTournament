@@ -302,9 +302,9 @@
 
         Boxer_1_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
        Boxer_1_imageView.layer.cornerRadius= Boxer_1_imageView.frame.size.width / 2;
-        Boxer_1_imageView.layer.borderWidth=0.1;
+        Boxer_1_imageView.layer.borderWidth=1;
         Boxer_1_imageView.layer.masksToBounds = YES;
-        Boxer_1_imageView.layer.borderColor=[[UIColor whiteColor] CGColor];
+        Boxer_1_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
 
         Boxer_1_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
@@ -324,9 +324,9 @@
       
         Boxer_2_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
         Boxer_2_imageView.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
-        Boxer_2_imageView.layer.borderWidth=0.1;
+        Boxer_2_imageView.layer.borderWidth=1;
         Boxer_2_imageView.layer.masksToBounds = YES;
-        Boxer_2_imageView.layer.borderColor=[[UIColor whiteColor] CGColor];
+        Boxer_2_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
 
         Boxer_2_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
