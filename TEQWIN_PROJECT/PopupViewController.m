@@ -25,29 +25,32 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
       PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
+    
+
+
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    
-    //
-[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-    
-    r = arc4random_uniform(objects.count)+1;
-    RANDOM = [@(r) stringValue];
-    [query whereKey:@"ad_id" equalTo:RANDOM];
-    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"%d",objects.count);
+            _loadingSpinner.hidden = NO;
+            [_loadingSpinner startAnimating];
+            NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
+            r = arc4random_uniform(mutableArray.count)+1;
+            RANDOM = [@(r) stringValue];
+            
+            [query whereKey:@"ad_id" equalTo:RANDOM];
+
             for (PFObject *object in objects) {
              _ad_image.file = [object objectForKey:@"ad_image"];
-                _loadingSpinner.hidden = NO;
-                [_loadingSpinner startAnimating];
+
                 [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
                     UIGraphicsEndImageContext();
                     _ad_image.image = [UIImage imageWithData:data];
                     _loadingSpinner.hidden = YES;
                     [_loadingSpinner stopAnimating];
-                }];}}}];}];
+                    
+                    
+                }];}}}];
     // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)viewDidLoad

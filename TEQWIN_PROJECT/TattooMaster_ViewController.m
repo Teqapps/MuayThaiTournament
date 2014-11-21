@@ -197,11 +197,7 @@
 }
 
 - (void)queryParseMethod_boxer1 {
-    r = arc4random_uniform(3)+1;
-    RANDOM = [[NSNumber numberWithInt:r] stringValue];
-    r_2 = arc4random_uniform(3)+1;
-    RANDOM_2 = [[NSNumber numberWithInt:r] stringValue];
-    NSLog(@"%@%@",RANDOM_2,RANDOM);
+
     
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
   
