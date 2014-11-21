@@ -62,7 +62,7 @@
 
        intro_list =[[NSMutableArray alloc]init];
     [intro_list addObject:[NSString stringWithFormat:@"TEQWIN SOLUTION LIMITED"]];
-    NSLog(@"%@",list );
+
 
 }
 - (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
@@ -315,21 +315,20 @@ return 1;
 {
     switch (result) {
         case MFMailComposeResultCancelled:
-            NSLog(@"Mail Cancelled");
+         
             break;
             
         case MFMailComposeResultSaved:
-            
-            NSLog(@"Mail Saved");
+
             break;
             
         case MFMailComposeResultSent:
-            NSLog(@"Mail Sent");
+
             break;
             
         case MFMailComposeResultFailed:
             
-            NSLog(@"Mail Failed");
+
             break;
             
         default:

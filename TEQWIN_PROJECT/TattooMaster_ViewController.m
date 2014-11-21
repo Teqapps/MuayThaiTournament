@@ -91,18 +91,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.hidesBackButton = YES;
 
-    //r = arc4random_uniform(3)+1;
-    //RANDOM = [@(r) stringValue];
- //   NSLog(@"%d",lastClickedRow);
-
-  
-    
-   
-    
-   
-   
-   
-    // scroll search bar out of sight
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
         newBounds.origin.y = newBounds.origin.y;
@@ -135,8 +123,7 @@
         return self.objects.count;
         
     } else {
-        //NSLog(@"how many in search results");
-        //NSLog(@"%@", self.searchResults.count);
+  
         return self.searchResults.count;
         
     }
@@ -149,7 +136,7 @@
     
     
     NSArray *results  = [searchquery findObjects];
-    //NSLog(@"%d",results.count);
+
     searchquery.cachePolicy=kPFCachePolicyCacheElseNetwork;
     [self.searchResults addObjectsFromArray:results];
     
@@ -157,13 +144,7 @@
     [NSPredicate predicateWithFormat:@"Name CONTAINS[cd]%@", searchTerm];
     _searchResults = [NSMutableArray arrayWithArray:[results filteredArrayUsingPredicate:searchPredicate]];
     
-    //NSLog(@"%@",_searchResults);
-    // if(![scope isEqualToString:@"全部"]) {
-    // Further filter the array with the scope
-    //   NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"Gender contains[cd] %@", scope];
-    
-    //  _searchResults = [NSMutableArray arrayWithArray:[_searchResults filteredArrayUsingPredicate:resultPredicate]];
-    
+
 }//}
 
 //當search 更新時， tableview 就會更新，無論scope select 咩
@@ -224,11 +205,10 @@
     
                 [_table_view reloadData];
             
-              //  NSLog(@"baba%@",bannerarray);
+     
             }
             
-             //
-                     //  NSLog(@"000%d",bannerarray.count);
+
         }
     }];
     
@@ -303,7 +283,7 @@
     // Configure the cell
    // selectobject = [boxer_array  objectAtIndex:indexPath.row];
     if (tableView == self.tableView) {
-              // NSLog(@"gg%@",self.objects);
+
        
         UIActivityIndicatorView *loadingSpinner_2 = (UIActivityIndicatorView*) [cell viewWithTag:111];
         UIActivityIndicatorView *loadingSpinner = (UIActivityIndicatorView*) [cell viewWithTag:110];
@@ -496,15 +476,14 @@
     if (tableView == self.tableView) {
         
         selectobject = [self.objects  objectAtIndex:indexPath.row];
-        NSLog(@"%@",[selectobject objectForKey:@"muay_id"]);
+       
     }
     else {
-        //NSLog(@"how many in search results");
-        //NSLog(@"%@", self.searchResults.count);
+  
         selectobject = [self.objects  objectAtIndex:indexPath.row];
 
         searchedobject = [_searchResults  objectAtIndex:indexPath.row];
-        NSLog(@"%@",[selectobject objectForKey:@"boxer_id"]);
+     
         detail_news_ViewController * mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_news_ViewController"];
         [self.navigationController pushViewController:mapVC animated:YES];
         TattooMasterCell * tattoomasterCell = [[TattooMasterCell alloc] init];
@@ -516,7 +495,7 @@
       //  tattoomasterCell.object_id = selectobject.objectId;
         
         mapVC.tattoomasterCell = tattoomasterCell;
-       // NSLog(@"%@",tattoomasterCell.master_id);
+     
     }
     
     
@@ -532,117 +511,6 @@
 //   }];
 //}
 
-
-
-- (IBAction)Fav:(id)sender {
-    if ([PFUser currentUser]) {
-        UIButton *button = sender;
-        CGPoint correctedPoint =
-        [button convertPoint:button.bounds.origin toView:self.tableView];
-        indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        lastClickedRow = indexPath.row;
-        selectobject = [self.objects objectAtIndex:indexPath.row];
-        
-        
-        if ([[selectobject objectForKey:@"favorites"]containsObject:[PFUser currentUser].objectId]) {
-            
-            [self dislike];
-            
-            NSLog(@"disliked");
-            
-        }
-        
-        else{
-            
-            
-            [self likeImage];
-            
-            NSLog(@"liked");
-            
-        }
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"尚未登入"
-                                                        message:@"需要進入登入頁嗎？"
-                                                       delegate:self
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"確定",nil];
-        //然后这里设定关联，此处把indexPath关联到alert上
-        
-        [alert show];
-        
-        NSLog(@"請登入");
-        
-        ; }
-}
-
-- (void) likeImage {
-    [selectobject addUniqueObject:[PFUser currentUser].objectId forKey:@"favorites"];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Uploading";
-    [hud show:YES];
-    [selectobject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (!error) {
-            
-            if ([[selectobject objectForKey:@"favorites"]containsObject:[PFUser currentUser].objectId]) {
-                
-            }
-            [self refreshTable:nil];
-            [hud hide:YES];
-        }
-        else {
-            [self likedFail];
-        }
-    }];
-}
-- (void) dislike {
-    [selectobject removeObject:[PFUser currentUser].objectId forKey:@"favorites"];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = @"Loading";
-    [hud show:YES];
-    [selectobject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            
-            
-            if ([[selectobject objectForKey:@"favorites"]containsObject:[PFUser currentUser].objectId]) {
-                
-            }
-            else
-            {
-                
-            }
-            [self refreshTable:nil];
-            [hud hide:YES];
-        }
-        else {
-            [self dislikedFail];
-        }
-    }];
-}
-
-- (void) likedSuccess {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功!" message:@"你已經加入了我的最愛" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-    
-}
-
-- (void) likedFail {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失敗!" message:@"There was an error when liking the image" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-}
-- (void) dislikedSuccess {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功!" message:@"你已經取消了我的最愛" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-    
-}
-
-- (void) dislikedFail {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"失敗!" message:@"There was an error when liking the image" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
-}
 
 
 
@@ -667,22 +535,7 @@
 
 
         destViewController.tattoomasterCell = tattoomasterCell;
-        //  NSInteger myInteger = [tattoomasterCell.view integerValue];
-        //  object[@"view"] =[NSNumber numberWithFloat:(myInteger+ 1)];
-        //  [object saveInBackground];
-        //  NSLog(@"%@",object[@"view"]);
-        //NSLog(@"%@",[object objectForKey:@"Boxer_1_id"]);
-        
-       // [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
-       // [object saveInBackground];
-       
-        
-       // MTPopupWindow *popup = [[MTPopupWindow alloc] init];
-        // if (![popup superview]) {
-       // popup.usesSafari = YES;
-       // popup.fileName = @"info.html";
-        //    [popup show];}
-    }
+         }
     if ([segue.identifier isEqualToString:@"show_boxer_2"]) {
         UIButton *button = sender;
         CGPoint correctedPoint =
@@ -703,14 +556,7 @@
         tattoomasterCell.object_id = object.objectId;
 
         destViewController.tattoomasterCell = tattoomasterCell;
-        
-        
-       // NSLog(@"%@",[object objectForKey:@"Boxer_2_id"]);
-      //  [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
-      //  [object saveInBackground];
-        
-        
-    
+
 
            }
     
@@ -736,15 +582,8 @@
     NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
      PFObject *object = [bannerarray objectAtIndex:indexPath.row];
     
-    //NSLog(@"%@",[object objectForKey:@"banner_link"]);
-    
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[object objectForKey:@"banner_link"]]];
     
-    
-   // NSString*bannername =  [NSString stringWithFormat:@"%@",[object objectForKey:@"banner"]];
-  //  NSLog(@"%@",bannername);
-   // NSLog(@"11111%@%@",[object objectForKey:@"banner_id"],[object objectForKey:@"banner_link"]);
-  
     
    NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
 [PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];

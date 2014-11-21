@@ -39,9 +39,6 @@
 		4268644F1A11E35A0043582C /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644D1A11E35A0043582C /* win.png */; };
 		426864511A11EBC50043582C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 426864501A11EBC50043582C /* iAd.framework */; };
 		426864551A12123C0043582C /* MTPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 426864541A12123C0043582C /* MTPopupWindow.m */; };
-		4268645A1A1212490043582C /* bundle_books_cover_noprice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 426864571A1212490043582C /* bundle_books_cover_noprice.jpg */; };
-		4268645B1A1212490043582C /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = 426864581A1212490043582C /* info.html */; };
-		4268645C1A1212490043582C /* more.html in Resources */ = {isa = PBXBuildFile; fileRef = 426864591A1212490043582C /* more.html */; };
 		426ED39319B9AF560024E817 /* TattooMasterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426ED39219B9AF560024E817 /* TattooMasterCell.m */; };
 		426ED3D219C02C740024E817 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426ED3D119C02C740024E817 /* Main.storyboard */; };
 		426ED3E919C04A030024E817 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 426ED3E819C04A030024E817 /* MBProgressHUD.m */; };
@@ -126,9 +123,6 @@
 		426864501A11EBC50043582C /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		426864531A12123C0043582C /* MTPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopupWindow.h; sourceTree = "<group>"; };
 		426864541A12123C0043582C /* MTPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopupWindow.m; sourceTree = "<group>"; };
-		426864571A1212490043582C /* bundle_books_cover_noprice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bundle_books_cover_noprice.jpg; sourceTree = "<group>"; };
-		426864581A1212490043582C /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
-		426864591A1212490043582C /* more.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = more.html; sourceTree = "<group>"; };
 		426ED39119B9AF560024E817 /* TattooMasterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TattooMasterCell.h; sourceTree = "<group>"; };
 		426ED39219B9AF560024E817 /* TattooMasterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TattooMasterCell.m; sourceTree = "<group>"; };
 		426ED3D119C02C740024E817 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -213,7 +207,6 @@
 		42193F841985FE08007E3C52 = {
 			isa = PBXGroup;
 			children = (
-				426864561A12123F0043582C /* HTML */,
 				426864521A1212230043582C /* MTPopupWindow */,
 				426ED3E619C049EE0024E817 /* MBProgressHUB */,
 				426ED3D119C02C740024E817 /* Main.storyboard */,
@@ -371,16 +364,6 @@
 			name = MTPopupWindow;
 			sourceTree = "<group>";
 		};
-		426864561A12123F0043582C /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				426864571A1212490043582C /* bundle_books_cover_noprice.jpg */,
-				426864581A1212490043582C /* info.html */,
-				426864591A1212490043582C /* more.html */,
-			);
-			name = HTML;
-			sourceTree = "<group>";
-		};
 		426ED3E619C049EE0024E817 /* MBProgressHUB */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,12 +480,10 @@
 				428E7C5E1A008B5900CA2C14 /* loading@2x.png in Resources */,
 				42A95FDA1A0231BD002C0508 /* teqapps_logo_ai_G.jpg in Resources */,
 				4219409E198789DB007E3C52 /* ICON.png in Resources */,
-				4268645A1A1212490043582C /* bundle_books_cover_noprice.jpg in Resources */,
 				42CB3DEA1A19FA2C00BB10DC /* closebutton.png in Resources */,
 				428E7C561A0086A900CA2C14 /* ICON.png in Resources */,
 				4268644F1A11E35A0043582C /* win.png in Resources */,
 				4263005D199083C3007B8C8F /* app-map-icon.png in Resources */,
-				4268645B1A1212490043582C /* info.html in Resources */,
 				42193FA91985FE08007E3C52 /* Images.xcassets in Resources */,
 				4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */,
 				42A95FDC1A02335C002C0508 /* teqapps_logo_ai_G.png in Resources */,
@@ -514,7 +495,6 @@
 				42A95FD81A022EB4002C0508 /* image001.png in Resources */,
 				428E7C5D1A008B5900CA2C14 /* loading.png in Resources */,
 				428E7C531A00865000CA2C14 /* ICON@2x.png in Resources */,
-				4268645C1A1212490043582C /* more.html in Resources */,
 				422278B41A1DD90D00AA7915 /* vs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

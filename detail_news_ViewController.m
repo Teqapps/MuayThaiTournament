@@ -38,7 +38,7 @@
     }
     self.automaticallyAdjustsScrollViewInsets = NO;
      self.news_detail.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
-   // NSLog(@"%@",[boxersarray valueForKey:@"Intro"]);
+
     self.news_detail.text=test;
     self.news_detail.layer.cornerRadius=8.0f;
     self.news_detail.layer.borderWidth=2.0;
@@ -113,11 +113,8 @@
             
             }}}];
     
-
-   // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)queryParseMethod {
-    NSLog(@"start query11");
     
     PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
@@ -135,7 +132,7 @@
 
        
 - (void)queryParseMethod_boxer1 {
-    NSLog(@"start query");
+
     
     PFQuery *query = [PFQuery queryWithClassName:@"Match_History"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -146,7 +143,7 @@
         if (!error) {
             imageFilesArray = [[NSArray alloc] initWithArray:objects];
             [_tableview reloadData];
-            NSLog(@"%D",imageFilesArray.count);
+           
         }
           }];
   

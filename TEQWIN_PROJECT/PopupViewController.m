@@ -56,7 +56,7 @@
                     
                     
                 }];}}}];}];
-    // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
+
 }
 - (void)viewDidLoad
 {
@@ -102,11 +102,7 @@
    
     mapVC.tattoomasterCell = tattoomasterCell;
     
-    
-    // NSLog(@"%@",[object objectForKey:@"Boxer_2_id"]);
-   
-
-}
+   }
 - (IBAction)golink:(id)sender {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
