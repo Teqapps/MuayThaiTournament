@@ -164,18 +164,8 @@
     // Use this to allow upside down as well
     //return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
-- (void)refreshTable:(NSNotification *) notification
-{
-    // Reload the recipes
-    [self loadObjects];
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
-}
+
+
 
 - (void)queryParseMethod_boxer1 {
 
