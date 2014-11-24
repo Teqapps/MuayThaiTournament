@@ -48,10 +48,10 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = NO;
+        self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        //self.objectsPerPage = 10;
+          self.objectsPerPage = 4;
     }
     return self;
 }
@@ -215,7 +215,16 @@
 }
 
 
-
+- (void)objectsDidLoad:(NSError *)error {
+    [super objectsDidLoad:error];
+    
+    // This method is called every time objects are loaded from Parse via the PFQuery
+}
+- (void)objectsWillLoad {
+    [super objectsWillLoad];
+    
+    // This method is called before a PFQuery is fired to get more objects
+}
 
 
 - (PFQuery *)queryForTable{
@@ -345,40 +354,50 @@
                 
             }}
          ];
-        
-       
+         PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:191];
+       PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:192];
        // PFFile *Match_Result_1 = [object objectForKey:@"Boxer_1_resulticon"];
         NSNumber * isSuccessNumber = (NSNumber *)[object objectForKey: @"Result_allow"];
         if([isSuccessNumber boolValue] == YES)
         {
 
-        PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:191];
+       
         if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Win"]) {
             
             
                   Match_Result_1_imageView.image = [UIImage imageNamed:@"win.png"];
                }
-               else
+               else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
             
                    Match_Result_1_imageView.image = [UIImage imageNamed:@"lose.png"];
               }
-
-        
+               }
+               else{
+                    Match_Result_1_imageView.image = nil;
+               }
         //PFFile *Match_Result_2 = [object objectForKey:@"Boxer_2_resulticon"];
-        PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:192];
-        if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
-            
-            
-            Match_Result_2_imageView.image = [UIImage imageNamed:@"win.png"];
-        }
-        else
-            {
+        
+            if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
                 
-                Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
+                
+                Match_Result_2_imageView.image = [UIImage imageNamed:@"win.png"];
+            }
+            else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
+                {
+                    
+                    Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
+                }
+            }
+            else{
+                Match_Result_2_imageView.image = nil;
             }
         }
-
+        else
+        {
+            Match_Result_1_imageView.image=nil;
+            Match_Result_2_imageView.image=nil;
+        }
         
          PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];
      

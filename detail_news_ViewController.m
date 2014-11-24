@@ -88,6 +88,7 @@
         if (!error) {
           
             for (PFObject *object in objects) {
+               
               _club_image.file = [object objectForKey:@"Club_image"];
                 _loadingSpinner_2.hidden = NO;
                 [_loadingSpinner_2 startAnimating];
@@ -110,7 +111,7 @@
                     [_loadingSpinner_1 stopAnimating];
                     
                 }];
-            
+                
             }}}];
     
 }

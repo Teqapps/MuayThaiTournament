@@ -40,7 +40,7 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            query.cachePolicy = kPFCachePolicyNetworkElseCache ;
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
             NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
             r = arc4random_uniform(mutableArray.count)+1;
             RANDOM = [@(r) stringValue];
