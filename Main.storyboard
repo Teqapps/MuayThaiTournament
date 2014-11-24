@@ -172,25 +172,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-IN-gZv" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="71" width="320" height="414"/>
+                                <rect key="frame" x="0.0" y="32" width="320" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="closebutton.png" translatesAutoresizingMaskIntoConstraints="NO" id="2iP-Dq-nCE">
-                                <rect key="frame" x="273" y="20" width="36" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aS-e8-3k9">
-                                <rect key="frame" x="273" y="20" width="36" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="button:" destination="DhQ-Ug-qmR" eventType="touchUpInside" id="Bcg-3i-H1U"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKs-aP-EMx">
-                                <rect key="frame" x="0.0" y="71" width="320" height="414"/>
+                                <rect key="frame" x="0.0" y="32" width="320" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,11 +189,25 @@
                                 <rect key="frame" x="150" y="268" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wg-dM-V0p">
+                                <rect key="frame" x="0.0" y="486" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="按這裏跳過此頁">
+                                    <color key="titleColor" red="0.99419019669999997" green="0.99419019669999997" blue="0.99419019669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button:" destination="DhQ-Ug-qmR" eventType="touchUpInside" id="6SY-RI-8WX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="34" id="J25-UJ-LQL"/>
-                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="51" id="VDq-c3-VRs"/>
+                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="-10" id="Kp1-F8-aff"/>
+                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="81" id="byp-hb-iZn"/>
+                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="81" id="elr-3K-jLp"/>
+                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="-10" id="ySI-pQ-z7N"/>
+                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="7Wg-dM-V0p" secondAttribute="bottom" constant="3" id="z4i-pT-DiO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3RO-6c-fFN"/>
@@ -215,6 +215,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ad_image" destination="kLp-IN-gZv" id="6TO-9v-Wu7"/>
+                        <outlet property="button" destination="7Wg-dM-V0p" id="Tqm-QD-Ibp"/>
+                        <outlet property="golink" destination="hKs-aP-EMx" id="maq-FZ-jRx"/>
                         <outlet property="loadingSpinner" destination="VWO-kW-iEL" id="FMr-FQ-TNW"/>
                     </connections>
                 </viewController>
@@ -538,7 +540,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="closebutton.png" width="80" height="80"/>
         <image name="menu.png" width="28" height="20"/>
         <image name="navigationicon.png" width="512" height="512"/>
         <image name="vs.png" width="450" height="600"/>

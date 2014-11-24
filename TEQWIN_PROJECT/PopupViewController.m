@@ -24,45 +24,47 @@
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated {
+ }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [_golink setEnabled:NO];
+    self.tabBarController.tabBar.hidden = YES;
     _loadingSpinner.hidden = NO;
     [_loadingSpinner startAnimating];
-      PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
-    
-
-
+    PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-       query.cachePolicy = kPFCachePolicyNetworkElseCache ;
+            query.cachePolicy = kPFCachePolicyNetworkElseCache ;
             NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
             r = arc4random_uniform(mutableArray.count)+1;
             RANDOM = [@(r) stringValue];
             [query whereKey:@"ad_id" equalTo:RANDOM];
         }
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                if (!error) {
-          
-
-            for (PFObject *object in objects) {
-             _ad_image.file = [object objectForKey:@"ad_image"];
-
-                [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                    _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
-                    UIGraphicsEndImageContext();
-                    _ad_image.image = [UIImage imageWithData:data];
-                    _loadingSpinner.hidden = YES;
-                    [_loadingSpinner stopAnimating];
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                
+                for (PFObject *object in objects) {
+                    _ad_image.file = [object objectForKey:@"ad_image"];
                     
-                    
-                }];}}}];}];
+                    [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                        _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
+                        UIGraphicsEndImageContext();
+                        _ad_image.image = [UIImage imageWithData:data];
+                        _loadingSpinner.hidden = YES;
+                        [_loadingSpinner stopAnimating];
+                            [_golink setEnabled:YES];
+                        
+                    }];}}}];}];
+    
 
-}
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.tabBarController.tabBar.hidden = YES;
-  
 
   [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.teset.text =self.tattoomasterCell.name;
@@ -86,6 +88,7 @@
 */
 
 - (IBAction)button:(id)sender {
+
         detail_news_ViewController * mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_news_ViewController"];
     [self.navigationController pushViewController:mapVC animated:YES];
     
@@ -104,23 +107,26 @@
     
    }
 - (IBAction)golink:(id)sender {
-
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-
+    
     [query whereKey:@"ad_id" equalTo:RANDOM];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                
+            
               
                 NSString * ling = [object objectForKey:@"ad_link"];
               
                 NSURL *url = [NSURL URLWithString:ling ];
                 [[UIApplication sharedApplication] openURL:url];
-                NSDictionary *dimensions = @{@"Full_ads":[object objectForKey:@"ad_id"]};
-                [PFAnalytics trackEvent:@"Fullads_count" dimensions:dimensions];
+               
+             
+
+             //   NSDictionary *dimensions = @{@"Full_ads":[object objectForKey:@"ad_id"]};
+             //   [PFAnalytics trackEvent:@"Fullads_count" dimensions:dimensions];
                           }
             
         }    }];
@@ -128,8 +134,9 @@
     
 
 
-    
+    //[sender setEnabled:YES];
     
     
 }
+
 @end

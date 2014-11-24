@@ -136,7 +136,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Match_History"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    
+        [query orderByDescending:@"createdAt"];
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
      [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

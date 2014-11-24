@@ -12,6 +12,8 @@
 {
     int r;
     NSString *RANDOM;
+    NSArray * ad_array;
+    PFObject *ad_object;
 }
 @property (nonatomic, strong) TattooMasterCell *tattoomasterCell;
 @property (weak, nonatomic) IBOutlet PFImageView *ad_image;

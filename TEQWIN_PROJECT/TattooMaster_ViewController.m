@@ -576,17 +576,18 @@
 }
 
 - (IBAction)gobannersite:(id)sender {
+    [sender setEnabled:NO];
     UIButton *button = sender;
     CGPoint correctedPoint =
     [button convertPoint:button.bounds.origin toView:self.tableView];
     NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
      PFObject *object = [bannerarray objectAtIndex:indexPath.row];
-    
+       [sender setEnabled:NO];
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[object objectForKey:@"banner_link"]]];
-    
-    
-   NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
-[PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];
+       [sender setEnabled:YES];
+  
+  // NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
+//[PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];
 }
 
 @end
