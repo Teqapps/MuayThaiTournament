@@ -307,7 +307,7 @@
         Boxer_1_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
 
         Boxer_1_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+       // UIGraphicsEndImageContext();
  
         [Boxer_1_image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
@@ -329,7 +329,7 @@
         Boxer_2_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
 
         Boxer_2_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+       // UIGraphicsEndImageContext();
 
         
         loadingSpinner_2.hidden= NO;

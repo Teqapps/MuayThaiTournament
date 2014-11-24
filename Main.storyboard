@@ -175,7 +175,7 @@
                                 <rect key="frame" x="0.0" y="32" width="320" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKs-aP-EMx">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKs-aP-EMx">
                                 <rect key="frame" x="0.0" y="32" width="320" height="428"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -203,10 +203,6 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="-10" id="Kp1-F8-aff"/>
-                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="81" id="byp-hb-iZn"/>
-                            <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="hKs-aP-EMx" secondAttribute="bottom" constant="81" id="elr-3K-jLp"/>
-                            <constraint firstItem="hKs-aP-EMx" firstAttribute="top" secondItem="WcP-ub-HxY" secondAttribute="bottom" constant="-10" id="ySI-pQ-z7N"/>
                             <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="7Wg-dM-V0p" secondAttribute="bottom" constant="3" id="z4i-pT-DiO"/>
                         </constraints>
                     </view>

@@ -56,7 +56,7 @@
                     
                     [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                         _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
-                        UIGraphicsEndImageContext();
+                       // UIGraphicsEndImageContext();
                         _ad_image.image = [UIImage imageWithData:data];
                         _loadingSpinner.hidden = YES;
                         [_loadingSpinner stopAnimating];
