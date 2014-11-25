@@ -202,6 +202,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pr2-rg-NVV" firstAttribute="top" secondItem="7Wg-dM-V0p" secondAttribute="bottom" constant="3" id="z4i-pT-DiO"/>
                         </constraints>
@@ -362,12 +363,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="nn5-of-G5y" kind="relationship" relationship="viewControllers" id="cC7-ug-6Aj"/>
-                        <segue destination="R9R-s2-Oow" kind="relationship" relationship="viewControllers" id="5KB-i9-xEb"/>
+                        <segue destination="Svd-un-d5X" kind="relationship" relationship="viewControllers" id="Wmg-KG-EsA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Jo-1j-OhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="-15"/>
+            <point key="canvasLocation" x="2319" y="722"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="Wvt-sb-4kS">
@@ -443,6 +444,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="關於我們" id="QVd-5D-gqI"/>
                     <navigationItem key="navigationItem" title="Title" id="tPn-kx-h7E"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -453,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRb-Oi-pSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="714"/>
+            <point key="canvasLocation" x="2712" y="722"/>
         </scene>
         <!--Aboutus map detail-->
         <scene sceneID="3ST-c5-t3g">
@@ -472,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MX1-gm-ovp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="714"/>
+            <point key="canvasLocation" x="3486" y="714"/>
         </scene>
         <!--Aboutus map-->
         <scene sceneID="bwK-kv-1y8">
@@ -513,26 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcv-1J-1sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="722"/>
-        </scene>
-        <!--Navigation Controller - 聯絡我們-->
-        <scene sceneID="I3i-fc-lBL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R9R-s2-Oow" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="聯絡我們" image="menu.png" id="wp5-UW-wFp"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bhC-Xw-Rw3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Svd-un-d5X" kind="relationship" relationship="rootViewController" id="3sq-kE-vag"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9r3-2C-xTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1120" y="714"/>
+            <point key="canvasLocation" x="3109" y="722"/>
         </scene>
     </scenes>
     <resources>

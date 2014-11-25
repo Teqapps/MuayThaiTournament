@@ -48,7 +48,7 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
+        self.paginationEnabled = NO;
         
         // The number of objects to show per page
           self.objectsPerPage = 4;
@@ -58,8 +58,12 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-   
-    self.tabBarController.tabBar.hidden = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshTable:)
+                                                 name:@"refreshTable"
+                                               object:nil];
+
+ self.tabBarController.tabBar.hidden = NO;
      [self queryParseMethod_boxer1];
          CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -75,8 +79,11 @@
     searchquery = [PFQuery queryWithClassName:@"Boxers"];
     //[query whereKey:@"Name" containsString:searchTerm];
     
-    searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
+   // searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
     [searchquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([objects count] == 0) {
+            searchquery.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
         if (!error) {
             boxer_array = [[NSArray alloc] initWithArray:objects];
             
@@ -87,7 +94,17 @@
 
     
 }
-
+- (void)refreshTable:(NSNotification *) notification
+{
+    // Reload the recipes
+    [self loadObjects];
+}
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
+}
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.hidesBackButton = YES;
 
@@ -172,10 +189,13 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
   
-    query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    //query.cachePolicy = kPFCachePolicyNetworkElseCache;
 
  //[query whereKey:@"Boxer_id" containsString:@"3"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if ([objects count] == 0) {
+            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
         if (!error) {
             {
                 NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];

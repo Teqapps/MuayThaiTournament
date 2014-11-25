@@ -19,9 +19,7 @@
     PFObject *selectobject;
     PFObject *searchedobject;
     NSArray * count;
-    NSString * like_status;
-     NSString * heart_status;
-    NSArray * hehe;
+
     PFObject * object_id;
     PFImageView *heart_statues;
     PFImageView *sex_statues;
@@ -33,21 +31,17 @@
          NSArray * boxer_array;
     UIButton *gallary_button;
     PFImageView *gallary_image;
-    NSMutableArray * newrow_array;
+
     NSString * RANDOM;
     int r;
-    NSString * RANDOM_2;
-    int r_2;
-   	NSArray *questions_;
+
     PFObject * banobject;
-    NSArray *answers_;
-    int i;
-    NSInteger *randomNumber_;
+ 
+
     PFObject *bannerobject;
-    int position;
-    NSArray *_quotes;
-    int random;
-    NSMutableArray *bannaymuarray;
+
+
+  
     
 }
 
