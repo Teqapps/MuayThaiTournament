@@ -58,6 +58,16 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    UIImage *image = [UIImage imageNamed:@"test-bg.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    
+    // Add image view on top of table view
+    [self.table_view addSubview:imageView];
+    
+    // Set the background view of the table view
+    self.table_view.backgroundView = imageView;
+
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshTable:)
                                                  name:@"refreshTable"
@@ -73,7 +83,7 @@
     
     self.title =@"泰拳比賽";
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
-    self.view.backgroundColor = [UIColor blackColor];
+    //self.view.backgroundColor = [UIColor blackColor];
     // searchbar.hidden = !searchbar.hidden;
 
     searchquery = [PFQuery queryWithClassName:@"Boxers"];
@@ -375,12 +385,14 @@
         if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Win"]) {
             
             
-                  Match_Result_1_imageView.image = [UIImage imageNamed:@"win.png"];
+                  Match_Result_1_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
                }
                else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
-            
-                   Match_Result_1_imageView.image = [UIImage imageNamed:@"lose.png"];
+                  Boxer_1_imageView.alpha =0.3;
+                 //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
+                  //Match_Result_1_imageView.alpha = 0.8;
+                 //  Match_Result_1_imageView.image = [UIImage imageNamed:@"los1e.png"];
               }
                }
                else{
@@ -391,12 +403,11 @@
             if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
                 
                 
-                Match_Result_2_imageView.image = [UIImage imageNamed:@"win.png"];
+                Match_Result_2_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
-                    
-                    Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
+                    Boxer_2_imageView.alpha =0.3;
                 }
             }
             else{

@@ -17,7 +17,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     sleep(2);
- 
+    [[UITabBar appearance] setBackgroundColor:[UIColor colorWithRed:0.0/255.0 green:0/255.0 blue:30.0/255.0 alpha:1.0]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor redColor]];
+   // [[UITabBar appearance] setAlpha:0.5];
           // Optional: automatically send uncaught exceptions to Google Analytics.
   //  [GAI sharedInstance].trackUncaughtExceptions = YES;
     

@@ -27,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableview.backgroundColor = [UIColor clearColor];
+    
+    
+    //[[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"test_bg.png"]]];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.tabBarController.tabBar.hidden = NO;
     [self queryParseMethod_boxer1];
