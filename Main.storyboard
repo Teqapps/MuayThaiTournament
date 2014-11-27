@@ -96,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" tag="192" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nH5-cO-Cy5" customClass="PFImageView">
-                                            <rect key="frame" x="210" y="67" width="80" height="33"/>
+                                            <rect key="frame" x="210" y="70" width="80" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kff-mp-nBX" customClass="PFImageView">
@@ -121,6 +121,14 @@
                                             <rect key="frame" x="240" y="50" width="20" height="20"/>
                                             <color key="color" red="0.97647064924240112" green="0.74117648601531982" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
                                         </activityIndicatorView>
+                                        <imageView userInteractionEnabled="NO" tag="133" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-S0-6Vz">
+                                            <rect key="frame" x="10" y="20" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="134" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUV-RN-eDF">
+                                            <rect key="frame" x="210" y="20" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.53000000000000003" colorSpace="calibratedRGB"/>
@@ -194,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="486" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="按這裏跳過此頁">
-                                    <color key="titleColor" red="0.99419019669999997" green="0.99419019669999997" blue="0.99419019669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.86117130474452552" green="0.71184990875912413" blue="0.27511975364963503" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -376,7 +384,7 @@
         <scene sceneID="Wvt-sb-4kS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nn5-of-G5y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="E1E62BDD-204E-4C02-8243-A0F795329C4C" id="dOX-5R-FVN"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="77874A45-059D-4CAC-ABF7-EFCCE86309DC" id="dOX-5R-FVN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3QJ-eI-Rzx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -521,8 +529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Champion_icon.png" width="350" height="200"/>
-        <image name="E1E62BDD-204E-4C02-8243-A0F795329C4C" width="28" height="20">
+        <image name="77874A45-059D-4CAC-ABF7-EFCCE86309DC" width="28" height="20">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -539,6 +546,7 @@ uAC6ALwAwwDLANcA2QDbAN0BtwG8AccB0AHWAdkB3wHoAe0B9QH4Af8CBwIUAhkCGwIdAiICKgItAjIC
 OgI9Ak8CUgJXAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlk
 </mutableData>
         </image>
+        <image name="Champion_icon.png" width="350" height="200"/>
         <image name="navigationicon.png" width="512" height="512"/>
         <image name="vs.png" width="450" height="600"/>
     </resources>

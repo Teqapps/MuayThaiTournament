@@ -28,12 +28,12 @@
 {
     [super viewDidLoad];
     self.tableview.backgroundColor = [UIColor clearColor];
-    
-    
+
+  
     //[[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"test_bg.png"]]];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.tabBarController.tabBar.hidden = NO;
-    [self queryParseMethod_boxer1];
+    
     [self queryParseMethod];
    
     
@@ -80,22 +80,19 @@
 
 }
 - (void)viewWillAppear:(BOOL)animated {
-
+[self queryParseMethod_boxer1];
 
 
       PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
    // query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    
+     query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
     [query whereKey:@"boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            if ([objects count] == 0) {
-                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            }
+      
             for (PFObject *object in objects) {
-               
-              _club_image.file = [object objectForKey:@"Club_image"];
+                            _club_image.file = [object objectForKey:@"Club_image"];
                 _loadingSpinner_2.hidden = NO;
                 [_loadingSpinner_2 startAnimating];
                 [_club_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -118,8 +115,11 @@
                     
                 }];
                 
-            }}}];
-    
+            }
+         
+        
+        }}];
+
 }
 - (void)queryParseMethod {
     
@@ -142,18 +142,17 @@
 
     
     PFQuery *query = [PFQuery queryWithClassName:@"Match_History"];
-  //  query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
         [query orderByDescending:@"createdAt"];
+    
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
      [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if ([objects count] == 0) {
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        }
+      
         if (!error) {
             imageFilesArray = [[NSArray alloc] initWithArray:objects];
             [_tableview reloadData];
-           
+       
         }
           }];
   

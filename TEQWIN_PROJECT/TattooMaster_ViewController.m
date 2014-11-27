@@ -375,7 +375,9 @@
             }}
          ];
          PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:191];
+         PFImageView *Match_Result_1_imageView_lose = (PFImageView*)[cell viewWithTag:133];
        PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:192];
+          PFImageView *Match_Result_2_imageView_lose = (PFImageView*)[cell viewWithTag:134];
        // PFFile *Match_Result_1 = [object objectForKey:@"Boxer_1_resulticon"];
         NSNumber * isSuccessNumber = (NSNumber *)[object objectForKey: @"Result_allow"];
         if([isSuccessNumber boolValue] == YES)
@@ -389,14 +391,16 @@
                }
                else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
-                  Boxer_1_imageView.alpha =0.3;
+          
+                  Match_Result_1_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
                  //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
-                  //Match_Result_1_imageView.alpha = 0.8;
+                  Match_Result_1_imageView_lose.alpha = 0.8;
                  //  Match_Result_1_imageView.image = [UIImage imageNamed:@"los1e.png"];
               }
                }
                else{
                     Match_Result_1_imageView.image = nil;
+                   Match_Result_1_imageView_lose.image=nil;
                }
         //PFFile *Match_Result_2 = [object objectForKey:@"Boxer_2_resulticon"];
         
@@ -407,17 +411,21 @@
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
-                    Boxer_2_imageView.alpha =0.3;
+                     Match_Result_2_imageView_lose.alpha = 0.8;
+                     Match_Result_2_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
                 }
             }
             else{
                 Match_Result_2_imageView.image = nil;
+                 Match_Result_2_imageView_lose.image = nil;
             }
         }
         else
         {
             Match_Result_1_imageView.image=nil;
             Match_Result_2_imageView.image=nil;
+              Match_Result_2_imageView_lose.image = nil;
+              Match_Result_1_imageView_lose.image=nil;
         }
         
          PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];
