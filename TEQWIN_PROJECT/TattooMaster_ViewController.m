@@ -262,7 +262,7 @@
      query.cachePolicy = kPFCachePolicyCacheThenNetwork;
        }
     
-    [query orderByDescending:@"createdAt"];
+    [query orderByAscending:@"match_id"];
    
     return query;
     
@@ -386,12 +386,13 @@
        
         if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Win"]) {
             
-            
+            Match_Result_1_imageView_lose.image=nil;
                   Match_Result_1_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
                }
+            
                else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
-          
+                  Match_Result_1_imageView.image =nil;
                   Match_Result_1_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
                  //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
                   Match_Result_1_imageView_lose.alpha = 0.8;
@@ -406,11 +407,12 @@
         
             if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
                 
-                
+                  Match_Result_2_imageView_lose.image=nil;
                 Match_Result_2_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
+                     Match_Result_2_imageView.image =nil;
                      Match_Result_2_imageView_lose.alpha = 0.8;
                      Match_Result_2_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
                 }

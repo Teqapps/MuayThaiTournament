@@ -27,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@", intro.text);
+    [self queryParseMethod];
     self.tableview.backgroundColor = [UIColor clearColor];
 
   
@@ -81,7 +83,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
 [self queryParseMethod_boxer1];
-[self queryParseMethod];
+
 
       PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
    // query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -128,14 +130,14 @@
     
     [query whereKey:@"boxer_id" equalTo:self.tattoomasterCell.boxer_id];
   //  [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
-    [query findObjects];
-    boxersarray =   [query findObjects];
+    boxersarray=[query findObjects];
   for (boxer_object in boxersarray) {
      test= [boxer_object objectForKey:@"Intro"];
    
     //  _club_image.image = [UIImage imageNamed:@"ICON.PNG"];
       
   }
+   
 }
 
        
@@ -213,9 +215,9 @@
     
  //   thumbnailImageView.file = thumbnail;
 //[thumbnailImageView loadInBackground];
-    intro.text = [imageObject objectForKey:@"Boxer_1_name"];
+    intro.text = [imageObject objectForKey:@"Boxer_name"];
     UILabel*boxer_1_name = (UILabel*)[cell viewWithTag:1];
-    boxer_1_name.text =self.tattoomasterCell.boxer_name;
+    boxer_1_name.text =[imageObject objectForKey:@"Boxer_name"];
    // UILabel *boxer_1_result = (UILabel*) [cell viewWithTag:2];
   //  boxer_1_result.text = [imageObject objectForKey:@"Boxer_results"];
     
@@ -225,7 +227,7 @@
    // boxer_2_result.text = [imageObject objectForKey:@"Boxer_2_results"];
     UILabel *date = (UILabel*) [cell viewWithTag:5];
     date.text = [imageObject objectForKey:@"Date"];
-    
+  
     PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:2];
     if ([[imageObject objectForKey:@"Boxer_results"]isEqualToString:@"Win"]) {
         
