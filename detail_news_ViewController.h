@@ -17,6 +17,7 @@
     PFObject *boxer_object;
     PFObject *comment;
       UITextView * intro;
+
 }
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner_1;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner_2;

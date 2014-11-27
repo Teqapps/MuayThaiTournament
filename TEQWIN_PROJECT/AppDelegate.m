@@ -17,8 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     sleep(2);
- 
-          // Optional: automatically send uncaught exceptions to Google Analytics.
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TAB_banner.jpg"]];
+             // Optional: automatically send uncaught exceptions to Google Analytics.
   //  [GAI sharedInstance].trackUncaughtExceptions = YES;
     
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
