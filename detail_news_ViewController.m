@@ -34,7 +34,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.tabBarController.tabBar.hidden = NO;
     
-    [self queryParseMethod];
+    
    
     
     if (test==nil) {
@@ -81,7 +81,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
 [self queryParseMethod_boxer1];
-
+[self queryParseMethod];
 
       PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
    // query.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -128,7 +128,8 @@
     
     [query whereKey:@"boxer_id" equalTo:self.tattoomasterCell.boxer_id];
   //  [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
-    boxersarray=[query findObjects];
+    [query findObjects];
+    boxersarray =   [query findObjects];
   for (boxer_object in boxersarray) {
      test= [boxer_object objectForKey:@"Intro"];
    
@@ -142,13 +143,15 @@
 
     
     PFQuery *query = [PFQuery queryWithClassName:@"Match_History"];
-   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+  
         [query orderByDescending:@"createdAt"];
     
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
      [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-      
+        if (objects==0) {
+             query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
         if (!error) {
             imageFilesArray = [[NSArray alloc] initWithArray:objects];
             [_tableview reloadData];
