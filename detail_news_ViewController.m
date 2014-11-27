@@ -47,7 +47,7 @@
 
     self.news_detail.text=test;
     self.news_detail.layer.cornerRadius=8.0f;
-    self.news_detail.layer.borderWidth=2.0;
+    self.news_detail.layer.borderWidth=0.0;
     self.news_detail.layer.borderColor =[[UIColor grayColor] CGColor];
     CGRect frame =  self.news_detail.frame;
     frame.size.height =  self.news_detail.contentSize.height;
@@ -147,12 +147,12 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Match_History"];
   
         [query orderByDescending:@"createdAt"];
-    
+     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
      [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects==0) {
-             query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+            
         }
         if (!error) {
             imageFilesArray = [[NSArray alloc] initWithArray:objects];
@@ -231,23 +231,27 @@
     PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:2];
     if ([[imageObject objectForKey:@"Boxer_results"]isEqualToString:@"Win"]) {
         
-        Match_Result_1_imageView.image = [UIImage imageNamed:@"win.png"];
+        Match_Result_1_imageView.image = [UIImage imageNamed:@"history_win.png"];
+       boxer_1_name.textColor=[UIColor yellowColor];
     }
     else
     {
         
-        Match_Result_1_imageView.image = [UIImage imageNamed:@"lose.png"];
+        Match_Result_1_imageView.image = [UIImage imageNamed:@"history_lose.png"];
+        boxer_1_name.textColor=[UIColor grayColor];
     }
 
     PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:4];
     if ([[imageObject objectForKey:@"Boxer_2_results"]isEqualToString:@"Win"]) {
         
-        Match_Result_2_imageView.image = [UIImage imageNamed:@"win.png"];
+        Match_Result_2_imageView.image = [UIImage imageNamed:@"history_win.png"];
+        boxer_2_name.textColor=[UIColor yellowColor];
     }
     else
     {
         
-        Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
+        Match_Result_2_imageView.image = [UIImage imageNamed:@"history_lose.png"];
+        boxer_2_name.textColor=[UIColor grayColor];
     }
 
     return cell;

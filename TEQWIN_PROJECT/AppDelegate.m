@@ -17,7 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     sleep(2);
-    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"TAB_banner.jpg"]];
+    
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"footer_menu_2.png"]];
              // Optional: automatically send uncaught exceptions to Google Analytics.
   //  [GAI sharedInstance].trackUncaughtExceptions = YES;
     

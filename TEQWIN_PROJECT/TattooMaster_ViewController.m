@@ -58,7 +58,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-    UIImage *image = [UIImage imageNamed:@"test-bg.png"];
+    UIImage *image = [UIImage imageNamed:@"background_4.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
     // Add image view on top of table view
@@ -333,7 +333,7 @@
        Boxer_1_imageView.layer.cornerRadius= Boxer_1_imageView.frame.size.width / 2;
         Boxer_1_imageView.layer.borderWidth=1;
         Boxer_1_imageView.layer.masksToBounds = YES;
-        Boxer_1_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
+        Boxer_1_imageView.layer.borderColor=[[UIColor blackColor] CGColor];
 
         Boxer_1_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
        // UIGraphicsEndImageContext();
@@ -355,7 +355,7 @@
         Boxer_2_imageView.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
         Boxer_2_imageView.layer.borderWidth=1;
         Boxer_2_imageView.layer.masksToBounds = YES;
-        Boxer_2_imageView.layer.borderColor=[[UIColor grayColor] CGColor];
+        Boxer_2_imageView.layer.borderColor=[[UIColor blackColor] CGColor];
 
         Boxer_2_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
        // UIGraphicsEndImageContext();
@@ -376,9 +376,24 @@
          ];
          PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:191];
          PFImageView *Match_Result_1_imageView_lose = (PFImageView*)[cell viewWithTag:133];
+        
+        Match_Result_1_imageView_lose.layer.backgroundColor=[[UIColor clearColor] CGColor];
+        Match_Result_1_imageView_lose.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
+    
+        Match_Result_1_imageView_lose.layer.masksToBounds = YES;
+        UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+        UILabel *nameLabel_2 = (UILabel*) [cell viewWithTag:102];
+        
        PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:192];
           PFImageView *Match_Result_2_imageView_lose = (PFImageView*)[cell viewWithTag:134];
+        Match_Result_2_imageView_lose.layer.backgroundColor=[[UIColor clearColor] CGColor];
+        Match_Result_2_imageView_lose.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
+        
+        Match_Result_2_imageView_lose.layer.masksToBounds = YES;
+        
+
        // PFFile *Match_Result_1 = [object objectForKey:@"Boxer_1_resulticon"];
+    
         NSNumber * isSuccessNumber = (NSNumber *)[object objectForKey: @"Result_allow"];
         if([isSuccessNumber boolValue] == YES)
         {
@@ -387,15 +402,19 @@
         if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Win"]) {
             
             Match_Result_1_imageView_lose.image=nil;
-                  Match_Result_1_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
+                  Match_Result_1_imageView.image = [UIImage imageNamed:@"home_win.png"];
+             Match_Result_1_imageView.layer.shadowColor =[UIColor colorWithRed:176.f/255.f green:199.f/255.f blue:226.f/255.f alpha:1.f].CGColor;
+            Match_Result_1_imageView.layer.shadowOffset = CGSizeMake(.0f,2.5f);
                }
             
                else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
                   Match_Result_1_imageView.image =nil;
                   Match_Result_1_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
+                  nameLabel.alpha = 0.3;
                  //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
                   Match_Result_1_imageView_lose.alpha = 0.8;
+                   Match_Result_1_imageView_lose.layer.cornerRadius= Match_Result_1_imageView_lose.frame.size.width / 2;
                  //  Match_Result_1_imageView.image = [UIImage imageNamed:@"los1e.png"];
               }
                }
@@ -408,10 +427,15 @@
             if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
                 
                   Match_Result_2_imageView_lose.image=nil;
-                Match_Result_2_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
+                Match_Result_2_imageView.image = [UIImage imageNamed:@"home_win.png"];
+                Match_Result_2_imageView.layer.shadowColor =[UIColor colorWithRed:255.f/255.f green:230.f/255.f blue:0.f/255.f alpha:1.f].CGColor;
+             Match_Result_2_imageView.layer.shadowOffset = CGSizeMake(.0f,2.5f);
+            
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
+                     nameLabel_2.alpha = 0.3;
+                       Match_Result_2_imageView_lose.layer.cornerRadius= Match_Result_2_imageView_lose.frame.size.width / 2;
                      Match_Result_2_imageView.image =nil;
                      Match_Result_2_imageView_lose.alpha = 0.8;
                      Match_Result_2_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
@@ -463,10 +487,10 @@
         
         
         
-        UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
+      
         nameLabel.text = [object objectForKey:@"Boxer_1"];
         
-        UILabel *nameLabel_2 = (UILabel*) [cell viewWithTag:102];
+        
         nameLabel_2.text = [object objectForKey:@"Boxer_2"];
         //  UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
         //  prepTimeLabel.text = [object objectForKey:@"address"];
@@ -480,28 +504,7 @@
         UILabel *match_date = (UILabel*) [cell viewWithTag:188];
         match_date.text = [object objectForKey:@"Match_Date"];
         
-        //   sex_statues = (PFImageView*)[cell viewWithTag:177];
-        //  if ([[object objectForKey:@"gender"]isEqualToString:@"男"]) {
-        
-        
-        //      sex_statues.image = [UIImage imageNamed:@"icon-sex-m.png"];
-        //   }
-        //   else
-        //   if ([[object objectForKey:@"gender"]isEqualToString:@"女"]) {
-        
-        //      sex_statues.image = [UIImage imageNamed:@"icon-sex-f.png"];
-        //  }
-       
-        heart_statues = (PFImageView*)[cell viewWithTag:107];
-        if ([[object objectForKey:@"favorites"]containsObject:[PFUser currentUser].objectId]) {
-            
-            heart_statues.image = [UIImage imageNamed:@"icon-liked.png"];
-        }
-        else
-        {
-            
-            heart_statues.image = [UIImage imageNamed:@"icon-like.png"];
-        }
+      
         // UICollectionView *cellImageCollection=(UICollectionView *)[cell viewWithTag:9];
         
     }
