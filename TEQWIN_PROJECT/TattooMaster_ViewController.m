@@ -331,7 +331,7 @@
 
         Boxer_1_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
        Boxer_1_imageView.layer.cornerRadius= Boxer_1_imageView.frame.size.width / 2;
-        Boxer_1_imageView.layer.borderWidth=1;
+        Boxer_1_imageView.layer.borderWidth=2;
         Boxer_1_imageView.layer.masksToBounds = YES;
         Boxer_1_imageView.layer.borderColor=[[UIColor blackColor] CGColor];
 
@@ -353,7 +353,7 @@
       
         Boxer_2_imageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
         Boxer_2_imageView.layer.cornerRadius= Boxer_2_imageView.frame.size.width / 2;
-        Boxer_2_imageView.layer.borderWidth=1;
+        Boxer_2_imageView.layer.borderWidth=2;
         Boxer_2_imageView.layer.masksToBounds = YES;
         Boxer_2_imageView.layer.borderColor=[[UIColor blackColor] CGColor];
 
@@ -411,7 +411,7 @@
               {
                   Match_Result_1_imageView.image =nil;
                   Match_Result_1_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
-                  nameLabel.alpha = 0.3;
+                  nameLabel.alpha = 1;
                  //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
                   Match_Result_1_imageView_lose.alpha = 0.8;
                    Match_Result_1_imageView_lose.layer.cornerRadius= Match_Result_1_imageView_lose.frame.size.width / 2;
@@ -434,7 +434,7 @@
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
-                     nameLabel_2.alpha = 0.3;
+                     nameLabel_2.alpha = 1;
                        Match_Result_2_imageView_lose.layer.cornerRadius= Match_Result_2_imageView_lose.frame.size.width / 2;
                      Match_Result_2_imageView.image =nil;
                      Match_Result_2_imageView_lose.alpha = 0.8;
