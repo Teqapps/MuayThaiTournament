@@ -24,7 +24,6 @@
     return self;
 }
 - (void)viewWillAppear:(BOOL)animated {
-    
  }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -47,11 +46,8 @@
             RANDOM = [@(r) stringValue];
             [query whereKey:@"ad_id" equalTo:RANDOM];
         }
-      //  query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if ([objects count] == 0) {
-                query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-            }
             if (!error) {
                 
                 
@@ -129,8 +125,8 @@
                
              
 
-               NSDictionary *dimensions = @{@"Full_ads":[object objectForKey:@"ad_id"]};
-               [PFAnalytics trackEvent:@"Fullads_count" dimensions:dimensions];
+             //   NSDictionary *dimensions = @{@"Full_ads":[object objectForKey:@"ad_id"]};
+             //   [PFAnalytics trackEvent:@"Fullads_count" dimensions:dimensions];
                           }
             
         }    }];

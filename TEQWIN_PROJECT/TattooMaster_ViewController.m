@@ -48,7 +48,7 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = NO;
+        self.paginationEnabled = YES;
         
         // The number of objects to show per page
           self.objectsPerPage = 4;
@@ -58,22 +58,8 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-    UIImage *image = [UIImage imageNamed:@"test-bg.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-    // Add image view on top of table view
-    [self.table_view addSubview:imageView];
-    
-    // Set the background view of the table view
-    self.table_view.backgroundView = imageView;
-
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(refreshTable:)
-                                                 name:@"refreshTable"
-                                               object:nil];
-
- self.tabBarController.tabBar.hidden = NO;
+   
+    self.tabBarController.tabBar.hidden = NO;
      [self queryParseMethod_boxer1];
          CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -83,17 +69,14 @@
     
     self.title =@"泰拳比賽";
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
-    //self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
     // searchbar.hidden = !searchbar.hidden;
 
     searchquery = [PFQuery queryWithClassName:@"Boxers"];
     //[query whereKey:@"Name" containsString:searchTerm];
     
-   // searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
+    searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
     [searchquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if ([objects count] == 0) {
-            searchquery.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        }
         if (!error) {
             boxer_array = [[NSArray alloc] initWithArray:objects];
             
@@ -104,17 +87,7 @@
 
     
 }
-- (void)refreshTable:(NSNotification *) notification
-{
-    // Reload the recipes
-    [self loadObjects];
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
-}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.hidesBackButton = YES;
 
@@ -199,13 +172,10 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
   
-    //query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
 
  //[query whereKey:@"Boxer_id" containsString:@"3"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if ([objects count] == 0) {
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        }
         if (!error) {
             {
                 NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
@@ -375,9 +345,7 @@
             }}
          ];
          PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:191];
-         PFImageView *Match_Result_1_imageView_lose = (PFImageView*)[cell viewWithTag:133];
        PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:192];
-          PFImageView *Match_Result_2_imageView_lose = (PFImageView*)[cell viewWithTag:134];
        // PFFile *Match_Result_1 = [object objectForKey:@"Boxer_1_resulticon"];
         NSNumber * isSuccessNumber = (NSNumber *)[object objectForKey: @"Result_allow"];
         if([isSuccessNumber boolValue] == YES)
@@ -387,45 +355,38 @@
         if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Win"]) {
             
             
-                  Match_Result_1_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
+                  Match_Result_1_imageView.image = [UIImage imageNamed:@"win.png"];
                }
                else  if ([[object objectForKey:@"Boxer_1_result"]isEqualToString:@"Lose"]) {
               {
-          
-                  Match_Result_1_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
-                 //  Match_Result_1_imageView.layer.cornerRadius= Match_Result_1_imageView.frame.size.width / 2;
-                  Match_Result_1_imageView_lose.alpha = 0.8;
-                 //  Match_Result_1_imageView.image = [UIImage imageNamed:@"los1e.png"];
+            
+                   Match_Result_1_imageView.image = [UIImage imageNamed:@"lose.png"];
               }
                }
                else{
                     Match_Result_1_imageView.image = nil;
-                   Match_Result_1_imageView_lose.image=nil;
                }
         //PFFile *Match_Result_2 = [object objectForKey:@"Boxer_2_resulticon"];
         
             if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Win"]) {
                 
                 
-                Match_Result_2_imageView.image = [UIImage imageNamed:@"Champion_icon.png"];
+                Match_Result_2_imageView.image = [UIImage imageNamed:@"win.png"];
             }
             else  if ([[object objectForKey:@"Boxer_2_result"]isEqualToString:@"Lose"]) {
                 {
-                     Match_Result_2_imageView_lose.alpha = 0.8;
-                     Match_Result_2_imageView_lose.image = [UIImage imageNamed:@"los1e.png"];
+                    
+                    Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
                 }
             }
             else{
                 Match_Result_2_imageView.image = nil;
-                 Match_Result_2_imageView_lose.image = nil;
             }
         }
         else
         {
             Match_Result_1_imageView.image=nil;
             Match_Result_2_imageView.image=nil;
-              Match_Result_2_imageView_lose.image = nil;
-              Match_Result_1_imageView_lose.image=nil;
         }
         
          PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];

@@ -33,13 +33,6 @@
 		42223ED719B5613300F0D058 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42223ED619B5613300F0D058 /* Accounts.framework */; };
 		42223ED919B5615400F0D058 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42223ED819B5615400F0D058 /* libz.1.1.3.dylib */; };
 		422278B41A1DD90D00AA7915 /* vs.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278B31A1DD90D00AA7915 /* vs.png */; };
-		422278D21A25970400AA7915 /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278D11A25970400AA7915 /* login_bg.png */; };
-		422278D41A259C3F00AA7915 /* test_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278D31A259C3F00AA7915 /* test_bg.png */; };
-		422278D61A25A0F600AA7915 /* test_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278D51A25A0F600AA7915 /* test_bg2.png */; };
-		422278D81A25A50D00AA7915 /* test-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278D71A25A50D00AA7915 /* test-bg.png */; };
-		422278DA1A25A70A00AA7915 /* los1e.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278D91A25A70A00AA7915 /* los1e.png */; };
-		422278DC1A25AAA700AA7915 /* Champion_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 422278DB1A25AAA700AA7915 /* Champion_icon.png */; };
-		422278EE1A25DAD800AA7915 /* TAB_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 422278ED1A25DAD800AA7915 /* TAB_banner.jpg */; };
 		4263005D199083C3007B8C8F /* app-map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4263005C199083C3007B8C8F /* app-map-icon.png */; };
 		4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4265871C1A1B4196002C0E93 /* navigationicon.png */; };
 		4268644E1A11E35A0043582C /* lose.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268644C1A11E35A0043582C /* lose.png */; };
@@ -123,13 +116,6 @@
 		42223ED619B5613300F0D058 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		42223ED819B5615400F0D058 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		422278B31A1DD90D00AA7915 /* vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vs.png; sourceTree = "<group>"; };
-		422278D11A25970400AA7915 /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
-		422278D31A259C3F00AA7915 /* test_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_bg.png; sourceTree = "<group>"; };
-		422278D51A25A0F600AA7915 /* test_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_bg2.png; sourceTree = "<group>"; };
-		422278D71A25A50D00AA7915 /* test-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-bg.png"; sourceTree = "<group>"; };
-		422278D91A25A70A00AA7915 /* los1e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = los1e.png; sourceTree = "<group>"; };
-		422278DB1A25AAA700AA7915 /* Champion_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Champion_icon.png; sourceTree = "<group>"; };
-		422278ED1A25DAD800AA7915 /* TAB_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TAB_banner.jpg; sourceTree = "<group>"; };
 		4263005C199083C3007B8C8F /* app-map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-map-icon.png"; sourceTree = "<group>"; };
 		4265871C1A1B4196002C0E93 /* navigationicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationicon.png; sourceTree = "<group>"; };
 		4268644C1A11E35A0043582C /* lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose.png; sourceTree = "<group>"; };
@@ -390,13 +376,6 @@
 		42A95FDE1A032F1F002C0508 /* photo_lastest */ = {
 			isa = PBXGroup;
 			children = (
-				422278ED1A25DAD800AA7915 /* TAB_banner.jpg */,
-				422278DB1A25AAA700AA7915 /* Champion_icon.png */,
-				422278D91A25A70A00AA7915 /* los1e.png */,
-				422278D51A25A0F600AA7915 /* test_bg2.png */,
-				422278D71A25A50D00AA7915 /* test-bg.png */,
-				422278D31A259C3F00AA7915 /* test_bg.png */,
-				422278D11A25970400AA7915 /* login_bg.png */,
 				42CB3DE91A19FA2C00BB10DC /* closebutton.png */,
 				4268644C1A11E35A0043582C /* lose.png */,
 				4268644D1A11E35A0043582C /* win.png */,
@@ -502,28 +481,21 @@
 				42A95FDA1A0231BD002C0508 /* teqapps_logo_ai_G.jpg in Resources */,
 				4219409E198789DB007E3C52 /* ICON.png in Resources */,
 				42CB3DEA1A19FA2C00BB10DC /* closebutton.png in Resources */,
-				422278D81A25A50D00AA7915 /* test-bg.png in Resources */,
-				422278DC1A25AAA700AA7915 /* Champion_icon.png in Resources */,
 				428E7C561A0086A900CA2C14 /* ICON.png in Resources */,
 				4268644F1A11E35A0043582C /* win.png in Resources */,
 				4263005D199083C3007B8C8F /* app-map-icon.png in Resources */,
 				42193FA91985FE08007E3C52 /* Images.xcassets in Resources */,
-				422278D41A259C3F00AA7915 /* test_bg.png in Resources */,
 				4265871D1A1B4196002C0E93 /* navigationicon.png in Resources */,
 				42A95FDC1A02335C002C0508 /* teqapps_logo_ai_G.png in Resources */,
 				4268644E1A11E35A0043582C /* lose.png in Resources */,
 				426ED3D219C02C740024E817 /* Main.storyboard in Resources */,
 				42A960261A071AD2002C0508 /* view.png in Resources */,
 				42D3D5DA19F7481800B01A97 /* FACEBOOK.JPG in Resources */,
-				422278DA1A25A70A00AA7915 /* los1e.png in Resources */,
 				42193F9B1985FE08007E3C52 /* InfoPlist.strings in Resources */,
 				42A95FD81A022EB4002C0508 /* image001.png in Resources */,
-				422278D21A25970400AA7915 /* login_bg.png in Resources */,
-				422278EE1A25DAD800AA7915 /* TAB_banner.jpg in Resources */,
 				428E7C5D1A008B5900CA2C14 /* loading.png in Resources */,
 				428E7C531A00865000CA2C14 /* ICON@2x.png in Resources */,
 				422278B41A1DD90D00AA7915 /* vs.png in Resources */,
-				422278D61A25A0F600AA7915 /* test_bg2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
