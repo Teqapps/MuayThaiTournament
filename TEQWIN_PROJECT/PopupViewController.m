@@ -38,14 +38,16 @@
     _loadingSpinner.hidden = NO;
     [_loadingSpinner startAnimating];
     PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
-    
+    query.cachePolicy = kPFCachePolicyCacheElseNetwork ;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
+           // query.cachePolicy = kPFCachePolicyCacheThenNetwork ;
             NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
             r = arc4random_uniform(mutableArray.count)+1;
             RANDOM = [@(r) stringValue];
             [query whereKey:@"ad_id" equalTo:RANDOM];
+            
+            
         }
       //  query.cachePolicy = kPFCachePolicyCacheThenNetwork;
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -59,10 +61,13 @@
                     _ad_image.file = [object objectForKey:@"ad_image"];
                     
                     [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                         CGRect rect = CGRectMake(0.0, 0.0, 1, 1);
+                        UIGraphicsBeginImageContextWithOptions(rect.size, NO, 1.0);
+                        [_ad_image drawRect:rect];
                         _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
-                       // UIGraphicsEndImageContext();
+                        UIGraphicsEndImageContext();
                         _ad_image.image = [UIImage imageWithData:data];
-                        _loadingSpinner.hidden = YES;
+                       _loadingSpinner.hidden = YES;
                         [_loadingSpinner stopAnimating];
                             [_golink setEnabled:YES];
                         

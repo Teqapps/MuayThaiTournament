@@ -89,11 +89,9 @@
     searchquery = [PFQuery queryWithClassName:@"Boxers"];
     //[query whereKey:@"Name" containsString:searchTerm];
     
-   // searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
+    searchquery.cachePolicy=kPFCachePolicyNetworkElseCache;
     [searchquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if ([objects count] == 0) {
-            searchquery.cachePolicy = kPFCachePolicyCacheThenNetwork;
-        }
+     
         if (!error) {
             boxer_array = [[NSArray alloc] initWithArray:objects];
             

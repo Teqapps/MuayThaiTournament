@@ -231,26 +231,26 @@
     PFImageView *Match_Result_1_imageView = (PFImageView*)[cell viewWithTag:2];
     if ([[imageObject objectForKey:@"Boxer_results"]isEqualToString:@"Win"]) {
         
-        Match_Result_1_imageView.image = [UIImage imageNamed:@"history_win.png"];
+        Match_Result_1_imageView.image = [UIImage imageNamed:@"match_win.png"];
        boxer_1_name.textColor=[UIColor yellowColor];
     }
     else
     {
         
-        Match_Result_1_imageView.image = [UIImage imageNamed:@"history_lose.png"];
+        Match_Result_1_imageView.image = [UIImage imageNamed:@"match_lose.png"];
         boxer_1_name.textColor=[UIColor grayColor];
     }
 
     PFImageView *Match_Result_2_imageView = (PFImageView*)[cell viewWithTag:4];
     if ([[imageObject objectForKey:@"Boxer_2_results"]isEqualToString:@"Win"]) {
         
-        Match_Result_2_imageView.image = [UIImage imageNamed:@"history_win.png"];
+        Match_Result_2_imageView.image = [UIImage imageNamed:@"match_win.png"];
         boxer_2_name.textColor=[UIColor yellowColor];
     }
     else
     {
         
-        Match_Result_2_imageView.image = [UIImage imageNamed:@"history_lose.png"];
+        Match_Result_2_imageView.image = [UIImage imageNamed:@"match_lose.png"];
         boxer_2_name.textColor=[UIColor grayColor];
     }
 

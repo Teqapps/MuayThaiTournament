@@ -17,8 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     sleep(2);
-    
-    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"footer_menu_2.png"]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:255.0/255.0 green:208.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"footer_menu_bg_2.png"]];
              // Optional: automatically send uncaught exceptions to Google Analytics.
   //  [GAI sharedInstance].trackUncaughtExceptions = YES;
     
