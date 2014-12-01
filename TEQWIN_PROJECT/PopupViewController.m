@@ -58,15 +58,12 @@
                 
                 
                 for (PFObject *object in objects) {
-                    
                     _ad_image.file = [object objectForKey:@"ad_image"];
                     
                     [_ad_image.file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                        CGSize itemSize = CGSizeMake(50, 50);
-                        UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-                        CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-
-                        [_ad_image drawRect:imageRect];
+                         CGRect rect = CGRectMake(0.0, 0.0, 1, 1);
+                        UIGraphicsBeginImageContextWithOptions(rect.size, NO, 1.0);
+                        [_ad_image drawRect:rect];
                         _ad_image.image = UIGraphicsGetImageFromCurrentImageContext();
                         UIGraphicsEndImageContext();
                         _ad_image.image = [UIImage imageWithData:data];
